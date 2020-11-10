@@ -11,10 +11,10 @@ public class Brackets {
         String szo3 = " "; //helyes output: 1
         String szo4 = ")(";
         String szo5 = "{{{{";
-        System.out.println(solutionA(szo5));
+        System.out.println(solution(szo5));
     }
 
-    public static int solutionA(String S) {
+    public static int solution(String S) {
         Stack<Character> verem = new Stack<>();
         CharacterIterator iterator = new StringCharacterIterator(S);
         int counter = 0;
