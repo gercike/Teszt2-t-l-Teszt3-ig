@@ -8,23 +8,31 @@ public class LoanCalculator {
     final double vipNoBailerButCoverageLimit = 20000000;
     final double vipLoanLimit = 50000000;
 
-    public double calcInstallments(boolean isVIP, double requestedAmount, int term) {
+    public double returnInstallments(boolean isVIP, double requestedAmount, int term) {
         double installment = -1;
         if (isVIP) {
             if (requestedAmount <= vipLoanLimit) {
-                installment = (requestedAmount + requestedAmount * 0.4 + requestedAmount * 0.02 * (term - 12)) / term;
+                installment = calcVipInstallment(requestedAmount, term);
             } else {
                 return -2;
             }
         }
         if (!isVIP) {
             if (requestedAmount <= nonvipLoanLimit) {
-                installment = (requestedAmount + requestedAmount * 0.5 + requestedAmount * 0.03 * (term - 12)) / term;
+                installment = calcNonVipInstallment(requestedAmount, term);
             } else {
                 return -3;
             }
         }
         return installment;
+    }
+
+    public double calcNonVipInstallment(double requestedAmount, int term) {
+        return (requestedAmount + requestedAmount * 0.5 + requestedAmount * 0.03 * (term - 12)) / term;
+    }
+
+    public double calcVipInstallment(double requestedAmount, int term) {
+        return (requestedAmount + requestedAmount * 0.4 + requestedAmount * 0.02 * (term - 12)) / term;
     }
 
     public double countAmountOfCoverage(double installment, boolean isVip, int term) {
