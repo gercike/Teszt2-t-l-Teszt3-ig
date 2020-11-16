@@ -8,11 +8,6 @@ public class Human {
     private boolean hasFather;
     private int id;
 
-    public Human() {
-        this.hasMother = false;
-        this.hasFather = false;
-    }
-
     public String getName() {
         return name;
     }
