@@ -21,8 +21,8 @@ public class Police {
     static void simulate() {
         for (int i = 0; i < suspects.size(); i = i + 2) {
             pairInterrogation(suspects.get(i), suspects.get(i + 1));
-            System.out.println(statistics);
         }
+        System.out.println(statistics);
     }
 
     static void pairInterrogation(Suspect s1, Suspect s2) {
